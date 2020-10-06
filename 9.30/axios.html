@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+    <script>
+      // 1. 发送get请求, 获取全部的数据
+      //   axios({
+      //     method: 'get',
+      //     url: 'http://localhost:3000/list',
+      //   })
+      //     .then((res) => {
+      //       console.log(res.data);
+      //     })
+      //     .catch((err) => {
+      //       console.log(err);
+      //       alert('当前服务器繁忙，稍后重试');
+      //     });
+
+      // 2. 按照条件查询数据
+      //   axios({
+      //     method: 'get',
+      //     url: 'http://localhost:3000/list',
+      //     params: {
+      //       name_like: '泡泡',
+      //     },
+      //   })
+      //     .then((res) => {
+      //       console.log(res.data);
+      //     })
+      //     .catch((err) => {
+      //       console.log(err);
+      //     });
+
+      // 3.添加数据
+      axios({
+        method: 'post',
+        url: 'http://localhost:3000/list',
+        data: {
+          name: '宝马车',
+          price: 100,
+        },
+      })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script>
+  </body>
+</html>

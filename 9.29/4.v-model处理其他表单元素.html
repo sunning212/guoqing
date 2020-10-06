@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{msg}}</p>
+      <input type="text" v-model="msg" value="123456" />
+      <hr />
+      <p>{{desc}}</p>
+      <textarea v-model="desc"></textarea>
+      <hr />
+      <p>{{hobbyid}}</p>
+      <select v-model="hobbyid">
+        <option value="1">吃饭</option>
+        <option value="2">睡觉</option>
+        <option value="3">打豆豆</option>
+      </select>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          desc: '描述：vue真是个好东西！！！',
+          hobbyid: 1,
+        },
+      });
+      //  表单元素如果设置了v-model，就会忽略掉默认的 value checked等初始值
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <a @click="fn" href="http://www.baidu.com">百度</a>
+      <a @click="fn2(100,$event)" href="http://www.baidu.com">百度1</a>
+      <a @click.prevent="fn" href="http://www.baidu.com">百度2</a>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      // vue中提供的按键修饰符
+      // .prevent 阻止默认行为
+      // .stop 阻止冒泡
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hellw vue',
+        },
+        methods: {
+          fn(e) {
+            e.preventDefault();
+          },
+          fn2(num, e) {
+            e.preventDefault();
+            console.log(num);
+          },
+          fn3() {
+            console.log('哈哈');
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

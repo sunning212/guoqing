@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{msg}}</h1>
+      <input type="text" v-model="msg" />
+      <hr />
+      用户名：<input type="text" v-model="username" /> <br />
+      密&nbsp;&nbsp;&nbsp;码：<input type="text" v-model="password" />
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      // 给表单元素使用，双向数据绑定
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: '热爱可抵岁月漫长',
+          username: 'sunning',
+          password: '123456',
+        },
+      });
+    </script>
+  </body>
+</html>

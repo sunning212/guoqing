@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{reverseMsgFn()}}</h1>
+      <h1>{{reverseMsgFn()}}</h1>
+      <h1>{{reverseMsgFn()}}</h1>
+      <h1>{{reverseMsgFn()}}</h1>
+      <h1>{{reverseMsgFn()}}</h1>
+      <hr />
+      <h1>{{reverseMsg}}</h1>
+      <h1>{{reverseMsg}}</h1>
+      <h1>{{reverseMsg}}</h1>
+      <h1>{{reverseMsg}}</h1>
+      <h1>{{reverseMsg}}</h1>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+        },
+        methods: {
+          reverseMsgFn() {
+            console.log('函数执行了！');
+            return this.msg.split('').reverse().join('');
+          },
+        },
+        computed: {
+          reverseMsg() {
+            console.log('计算属性计算了！');
+            return this.msg.split('').reverse().join('');
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

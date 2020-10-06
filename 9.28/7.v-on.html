@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>v-on</h3>
+
+      <button v-on:click="isShow = !isShow">切换显示隐藏</button>
+      <button v-on:click="fn1(1,2)">切换显示隐藏1</button>
+      <button v-on:click="fn2">切换显示隐藏2</button>
+      <hr />
+
+      <button @click="isShow = !isShow">切换显示隐藏</button>
+      <button @click="fn1(1,2)">切换显示隐藏1</button>
+      <button @click="fn2">切换显示隐藏2</button>
+      <h2 v-show="isShow">内容部分</h2>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          isShow: true,
+        },
+        methods: {
+          fn1(a, b) {
+            console.log(a, b);
+          },
+          fn2(e) {
+            this.isShow = !this.isShow;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

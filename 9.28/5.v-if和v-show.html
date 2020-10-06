@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1 v-show="flag">{{msg}}</h1>
+      <h1 v-if="flag">{{msg}}</h1>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      // v-if和v-show：控制盒子的显示隐藏
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          //   flag: false,
+          flag: true,
+        },
+      });
+    </script>
+  </body>
+</html>

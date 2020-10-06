@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="main">
+      <div id="box">
+        <h1>{{ msg }}</h1>
+      </div>
+
+      <div id="box">
+        <h1>{{ car }}</h1>
+      </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      /*
+      1. vue构造函数，首字母大写
+      2. el不能指定body或者html
+      3. 更新视图，就要操作数据
+       */
+      const vm = new Vue({
+        el: '#main',
+        data: {
+          msg: '胡宇桐',
+          age: 27,
+          car: '小汽车和大卡车',
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{msg}}</h1>
+      <h1>{{money}}</h1>
+      <h1>{{obj.name}}</h1>
+      <h1>{{obj.age}}</h1>
+      <h1>{{msg.toUpperCase()}}</h1>
+      <h1>{{obj.age>=18?'成年人':'未成年'}}</h1>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello,vue',
+          money: 10000000000,
+          obj: {
+            name: '胡宇桐',
+            age: 27,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

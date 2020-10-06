@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" value="123456" v-model="msg" /><br /><br />
+      <textarea v-model="desc"></textarea><br /><br />
+      <select v-model="hobbyid">
+        <option value="1">吃饭</option>
+        <option value="2">睡觉</option>
+        <option value="3">打豆豆</option>
+      </select>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          desc: '墙头马上遥相顾',
+          hobbyid: 3,
+        },
+      });
+    </script>
+  </body>
+</html>
