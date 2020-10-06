@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p v-show="flag">{{msg}}</p>
+      <p v-if="flag">{{msg}}</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          //   flag: true,
+          flag: false,
+        },
+      });
+
+      /*
+      v-if:动态创建或删除元素节点
+      v-show：控制css样式，display：none
+      */
+    </script>
+  </body>
+</html>

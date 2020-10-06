@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-focus />
+      <input type="text" v-pink />
+    </div>
+    <div id="app1">
+      <input type="text" v-focus />
+      <input type="text" v-pink />
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      Vue.directive('focus', {
+        inserted(el) {
+          el.focus();
+        },
+      });
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+        },
+        directives: {
+          pink: {
+            inserted(el) {
+              el.style.color = 'pink';
+            },
+          },
+        },
+      });
+
+      const vm1 = new Vue({
+        el: '#app1',
+        data: {
+          msg: 'hello vue',
+        },
+      });
+    </script>
+  </body>
+</html>

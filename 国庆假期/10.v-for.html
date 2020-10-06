@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="item in list">{{ item }}</li>
+      </ul>
+      <ul>
+        <li v-for="(value,prop) in obj">{{prop}} : {{value}}</li>
+      </ul>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          list: ['貂蝉', '吕布', '小乔', '曹操'],
+          obj: {
+            name: '孙宁',
+            age: '20',
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

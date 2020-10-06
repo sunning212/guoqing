@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .search {
+        width: 250px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="container">
+        <!-- 搜索 -->
+        <input
+          type="text"
+          v-model="key"
+          class="form-control search"
+          placeholder="输入关键字进行搜索"
+        />
+        <!-- 表格 -->
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>编号</th>
+              <th>资产名称</th>
+              <th>资产价格</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item,index) in showList" :key="item.id">
+              <td>{{index+1}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.price}}</td>
+              <td><a href="javascript:;" @click="del(item.id)">删除</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- 添加资产 -->
+        <form class="form-inline">
+          <input
+            type="text"
+            v-model.trim="name"
+            class="form-control"
+            placeholder="资产名称"
+          />
+          &nbsp;&nbsp;
+          <input
+            type="text"
+            v-model.number="price"
+            class="form-control"
+            placeholder="资产价格"
+          />
+          &nbsp;&nbsp;
+          <button class="btn btn-primary" @click.prevent="add">添加资产</button>
+        </form>
+      </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./axios.js"></script>
+
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          list: [],
+          name: '',
+          price: '',
+          key: '',
+        },
+        created() {
+          // 获取数据，并渲染到页面
+          this.getList();
+        },
+        methods: {
+          getList() {
+            axios.get('http://localhost:3000/list').then((res) => {
+              this.list = res.data;
+            });
+          },
+          // 删除数据
+          del(id) {
+            axios.delete(`http://localhost:3000/list/${id}`).then((res) => {
+              this.getList();
+            });
+          },
+          // 添加资产
+          add() {
+            if (this.name === '') return;
+            if (this.price === '') return;
+            axios
+              .post(`http://localhost:3000/list`, {
+                name: this.name,
+                price: this.price,
+              })
+              .then((res) => {
+                this.getList();
+                this.name = '';
+                this.price = '';
+              });
+          },
+        },
+        computed: {
+          showList() {
+            return this.list.filter((item) => {
+              if (item.name.includes(this.key)) {
+                return true;
+              } else {
+                return false;
+              }
+            });
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="msg" /><br /><br />
+      <textarea v-model="desc"></textarea><br /><br />
+      <select v-model="hobbyid">
+        <option value="1">胡宇桐</option>
+        <option value="2">黄景瑜</option>
+        <option value="3">李敏镐</option>
+      </select>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          desc: '愿所有快乐都无需假装',
+          hobbyid: 2,
+        },
+      });
+    </script>
+  </body>
+</html>
